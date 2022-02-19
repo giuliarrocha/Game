@@ -10,6 +10,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        public float RotationSpeed = 20f;
+        public float RotationSensitivity = 0.1f;
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -237,6 +239,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void RotateView()
         {
             m_MouseLook.LookRotation (transform, m_Camera.transform);
+            if (Input.GetAxis("Turn") != 0) {
+                Vector3 angles = m_MouseLook.m_CharacterTargetRot.eulerAngles;
+                angles.y += Input.GetAxis("Turn") * RotationSpeed *
+                RotationSensitivity;
+                m_MouseLook.m_CharacterTargetRot.eulerAngles = angles;
+            }
+            
         }
 
 
