@@ -6,18 +6,7 @@ public class Car : MonoBehaviour
 {
     public Animator car;
     public Animator wheel1, wheel2, wheel3, wheel4;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject trigger;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,14 +15,15 @@ public class Car : MonoBehaviour
         wheel2.SetBool("moving", true);
         wheel3.SetBool("moving", true);
         wheel4.SetBool("moving", true);
+        Destroy(trigger);
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        car.SetBool("moving", false);
-        wheel1.SetBool("moving", false);
-        wheel2.SetBool("moving", false);
-        wheel3.SetBool("moving", false);
-        wheel4.SetBool("moving", false);
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     car.SetBool("moving", false);
+    //     wheel1.SetBool("moving", false);
+    //     wheel2.SetBool("moving", false);
+    //     wheel3.SetBool("moving", false);
+    //     wheel4.SetBool("moving", false);
+    // }
 }
