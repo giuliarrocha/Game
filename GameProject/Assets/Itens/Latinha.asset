@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Latinha
   m_EditorClassIdentifier: 
   id: 1
-  itemName: latinha
+  itemName: Latinha
   value: 1
-  icon: {fileID: 21300000, guid: cd54996f836fd014d9783b211e676119, type: 3}
+  icon: {fileID: 21300000, guid: 87629fd3bd9cd274e961a28fb2f08407, type: 3}

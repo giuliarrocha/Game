@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactor : MonoBehaviour
 {
     private GameManager m_Manager;
-    public float m_TriggerDistance = 7f;
+    public float m_TriggerDistance = 2f;
     void Start()
     {
         GameObject controlCenter = GameObject.Find("ControlCenter");

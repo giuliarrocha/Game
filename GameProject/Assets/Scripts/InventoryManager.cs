@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
+
+    public TextMeshProUGUI itensAchados;
 
     private void Awake()
     {
@@ -46,5 +49,6 @@ public class InventoryManager : MonoBehaviour
     public void Update()
     {
         ListItens();
+        itensAchados.text = Itens.Count.ToString();
     }
 }
