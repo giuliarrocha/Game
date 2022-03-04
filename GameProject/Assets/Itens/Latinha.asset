@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   itemName: Latinha
-  value: 1
-  quant: 2
-  quantMax: 3
+  value: 0
+  quant: 1
+  quantMax: 1
   icon: {fileID: 21300000, guid: 87629fd3bd9cd274e961a28fb2f08407, type: 3}

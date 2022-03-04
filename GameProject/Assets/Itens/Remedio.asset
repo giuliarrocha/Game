@@ -15,4 +15,6 @@ MonoBehaviour:
   id: 8
   itemName: Cartela Remedio
   value: 0
+  quant: 0
+  quantMax: 3
   icon: {fileID: 21300000, guid: 06d6841f7c5a171488856a927123c2f6, type: 3}

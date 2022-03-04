@@ -15,4 +15,6 @@ MonoBehaviour:
   id: 5
   itemName: Restos de comida
   value: 0
+  quant: 0
+  quantMax: 3
   icon: {fileID: 21300000, guid: f509d21610c7bd84fab6b9301bdbc96c, type: 3}
