@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,10 +24,8 @@ public class Interactor : MonoBehaviour
         m_Manager.CursorTextureChange(false);
     }
     float DistanceFromCamera() {
-        Vector3 heading = transform.position -
-        Camera.main.transform.position;
-        float distance =
-        Vector3.Dot(heading, Camera.main.transform.forward);
+        Vector3 heading = transform.position - Camera.main.transform.position;
+        float distance = Vector3.Dot(heading, Camera.main.transform.forward);
         return distance;
     }
 }

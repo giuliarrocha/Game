@@ -15,4 +15,6 @@ MonoBehaviour:
   id: 3
   itemName: caixa de madeira
   value: 1
+  quant: 1
+  quantMax: 3
   icon: {fileID: 21300000, guid: 49b46f27adf69bc42bf357e5473f4520, type: 3}

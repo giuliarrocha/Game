@@ -9,5 +9,7 @@ public class Item : ScriptableObject
     public int id;
     public string itemName;
     public int value;
+    public int quant = 0;
+    public int quantMax;
     public Sprite icon;
 }
