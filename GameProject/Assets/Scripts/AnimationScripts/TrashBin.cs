@@ -10,7 +10,6 @@ public class TrashBin : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         bin.SetBool("move", true);
-        StartCoroutine(DelayCoroutine());
         open.Play();
     }
     
@@ -26,6 +25,7 @@ public class TrashBin : MonoBehaviour
         yield return new WaitForSeconds(0.90f);
 
         //After we have waited
+        //
         close.Play();
     }
 }
