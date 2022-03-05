@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class InventoryManager : MonoBehaviour
 {
@@ -16,9 +18,20 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryItemController[] InventoryItens;
 
+    public GameObject InfoDetails; // tela de fundo do pop-up
+    private TextMeshProUGUI Details; // referencia ao campo de texto do pop-up
+
+    public Animator Info;
+    public AudioSource open, close;
+
     private void Awake()
     {
         Instance = this;
+
+        Details = InfoDetails.transform.Find("Details").GetComponent<TextMeshProUGUI>();
+        InfoDetails.SetActive(false);
+
+        update();
     }
 
     public void Add(Item item)
@@ -35,11 +48,13 @@ public class InventoryManager : MonoBehaviour
             Itens.Add(item);
         }
         numItens++;
+        update();
     }
 
     public void Remove(Item item)
     {
         Itens.Remove(item);
+        update();
     }
 
     public void ListItens()
@@ -59,17 +74,21 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             itemQtd.text = item.quant.ToString() + " / " + item.quantMax.ToString();
+
+            ButtonClick btn = obj.AddComponent<ButtonClick>();
+            btn.config(InfoDetails, Details, itemName.text, Info, open, close);
         }
 
         SetInventoryItens();
     }
 
-    public void Update()
+    // nao fica atualizando toda hora, so na insercao, remocao e no comeco, senao botoes dos itens nao funcionam
+    public void update()
     {
         ListItens();
         itensAchados.text = numItens.ToString();
     }
-    
+
     public void SetInventoryItens() {
         InventoryItens = ItemContent.GetComponentsInChildren<InventoryItemController>();
         for (int i=0; i<Itens.Count; i++) {
