@@ -1,0 +1,13 @@
+
+=== Fri Mar  4 10:11:11 2022
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.2d.sprite@1.0.0
+  com.unity.probuilder@4.0.5
+  com.unity.progrids@3.0.3-preview.4
+  com.unity.render-pipelines.lightweight@6.9.2
+The following packages were updated:
+  com.unity.ide.vscode from version 1.1.2 to 1.1.4

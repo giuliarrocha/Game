@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
     private GameManager m_Manager;
-    public float m_TriggerDistance = 7f;
+    public float m_TriggerDistance = 2f;
     void Start()
     {
         GameObject controlCenter = GameObject.Find("ControlCenter");
@@ -24,10 +24,8 @@ public class Interactor : MonoBehaviour
         m_Manager.CursorTextureChange(false);
     }
     float DistanceFromCamera() {
-        Vector3 heading = transform.position -
-        Camera.main.transform.position;
-        float distance =
-        Vector3.Dot(heading, Camera.main.transform.forward);
+        Vector3 heading = transform.position - Camera.main.transform.position;
+        float distance = Vector3.Dot(heading, Camera.main.transform.forward);
         return distance;
     }
 }

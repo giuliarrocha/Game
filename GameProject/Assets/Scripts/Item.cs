@@ -8,6 +8,22 @@ public class Item : ScriptableObject
 {
     public int id;
     public string itemName;
-    public int value;
+    public int quant = 0;
+    public int quantMax;
     public Sprite icon;
+    public ItemType itemType;
+
+    public enum ItemType {
+        Bituca,
+        CaixaMadeira,
+        Canudo,
+        Comida,
+        GarrafaVidro,
+        Latinha,
+        Papel,
+        Pet,
+        Pilha,
+        Remedio,
+        Sacola
+    }
 }
