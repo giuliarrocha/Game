@@ -14,6 +14,8 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI itensAchados;
     public int numItens = 0;
 
+    public InventoryItemController[] InventoryItens;
+
     private void Awake()
     {
         Instance = this;
@@ -32,17 +34,6 @@ public class InventoryManager : MonoBehaviour
             item.quant = 1;
             Itens.Add(item);
         }
-        /*
-            if (item.quant == 0) {
-            item.quant++;
-            Itens.Add(item);
-        }
-        else {
-            foreach (var x in Itens) {
-                if (x.id == item.id)
-                    x.quant++;
-            }
-        }*/
         numItens++;
     }
 
@@ -69,6 +60,8 @@ public class InventoryManager : MonoBehaviour
             itemIcon.sprite = item.icon;
             itemQtd.text = item.quant.ToString() + " / " + item.quantMax.ToString();
         }
+
+        SetInventoryItens();
     }
 
     public void Update()
@@ -76,4 +69,13 @@ public class InventoryManager : MonoBehaviour
         ListItens();
         itensAchados.text = numItens.ToString();
     }
+    
+    public void SetInventoryItens() {
+        InventoryItens = ItemContent.GetComponentsInChildren<InventoryItemController>();
+        for (int i=0; i<Itens.Count; i++) {
+            InventoryItens[i].AddItem(Itens[i]);
+        }
+    }
 }
+
+
