@@ -25,6 +25,11 @@ public class InventoryManager : MonoBehaviour
     public AudioSource open, close;
 
     public Data saveItemData;
+    public MensagemColeta mensagem;
+    public GameObject mensagemPrefab;
+    public Transform canvas;
+    public Animator mensagemAnimator;
+    private GameObject instanciaMensagem;
 
     private void Awake()
     {
@@ -32,6 +37,8 @@ public class InventoryManager : MonoBehaviour
 
         Details = InfoDetails.transform.Find("Details").GetComponent<TextMeshProUGUI>();
         InfoDetails.SetActive(false);
+        instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
+        instanciaMensagem.SetActive(false);
 
         if(saveItemData.numItens != -1)
         {
@@ -65,6 +72,36 @@ public class InventoryManager : MonoBehaviour
         }
         numItens++;
         update();
+        
+        // pop-up MensagemColeta
+        MostraMensagem(item);
+    }
+
+    public void MostraMensagem(Item item)
+    {
+        
+        instanciaMensagem.SetActive(true);
+        var nomeItem = instanciaMensagem.transform.Find("NomeItem").GetComponent<TextMeshProUGUI>();
+        var itemIcon = instanciaMensagem.transform.Find("IconItem").GetComponent<UnityEngine.UI.Image>();
+        var numColetado = instanciaMensagem.transform.Find("NumColetado").GetComponent<TextMeshProUGUI>();
+        var numMax = instanciaMensagem.transform.Find("NumMax").GetComponent<TextMeshProUGUI>();
+
+        nomeItem.text = item.itemName;
+        itemIcon.sprite = item.icon;
+        numColetado.text = item.quant.ToString();
+        numMax.text = item.quantMax.ToString();
+
+        mensagemAnimator.SetBool("change", true);
+        open.Play();
+        mensagemAnimator.SetBool("change", false);
+        StartCoroutine(DelayCoroutine());
+    }
+
+    IEnumerator DelayCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        close.Play();
+        instanciaMensagem.SetActive(false);
     }
 
     public void Remove(Item item)

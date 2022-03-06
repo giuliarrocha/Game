@@ -39,7 +39,7 @@ public class ButtonClick : EventTrigger
             {
                 Info.SetBool("change", false);
                 close.Play();
-                StartCoroutine(DelayCoroutine1());
+                StartCoroutine(DelayCoroutine());
             }
             else
             {
@@ -53,7 +53,7 @@ public class ButtonClick : EventTrigger
         //if(Input.GetMouseButtonDown(2)) Debug.Log("Pressed middle click.");
     }
 
-    IEnumerator DelayCoroutine1()
+    IEnumerator DelayCoroutine()
     {
         yield return new WaitForSeconds(0.50f);
         InfoDetails.SetActive(!InfoDetails.activeSelf);

@@ -35,6 +35,7 @@ RectTransform:
   - {fileID: 6732763683451995115}
   - {fileID: 6732763682737215726}
   - {fileID: 6732763683415168868}
+  - {fileID: 6732763682463921974}
   m_Father: {fileID: 6732763683386866738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -441,7 +442,6 @@ RectTransform:
   m_Children:
   - {fileID: 6732763682880422832}
   - {fileID: 6732763682032579329}
-  - {fileID: 6732763682463921974}
   m_Father: {fileID: 6732763681384237646}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -707,16 +707,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6732763682463921975}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2.6538, z: 1}
   m_Children: []
-  m_Father: {fileID: 6732763682136187317}
-  m_RootOrder: 2
+  m_Father: {fileID: 6732763681384237646}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 32, y: 54.73413}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &6732763683240746705
@@ -1274,6 +1274,9 @@ MonoBehaviour:
   open: {fileID: 6732763683240746705}
   close: {fileID: 6732763683240746705}
   saveItemData: {fileID: 11400000, guid: e91c6624c7a5dbb4dbb78fe9ad786c87, type: 2}
+  mensagem: {fileID: 0}
+  mensagemPrefab: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &6732763683081331805
 GameObject:
   m_ObjectHideFlags: 0
