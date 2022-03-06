@@ -24,6 +24,8 @@ public class InventoryManager : MonoBehaviour
     public Animator Info;
     public AudioSource open, close;
 
+    public Data saveItemData;
+
     private void Awake()
     {
         Instance = this;
@@ -31,7 +33,21 @@ public class InventoryManager : MonoBehaviour
         Details = InfoDetails.transform.Find("Details").GetComponent<TextMeshProUGUI>();
         InfoDetails.SetActive(false);
 
+        if(saveItemData.numItens != -1)
+        {
+            // Debug.Log(saveItemData.numItens);
+            this.Itens = saveItemData.Itens;
+            this.numItens = saveItemData.numItens;
+            this.InventoryItens = saveItemData.InventoryItens;
+        }
         update();
+    }
+
+    private void saveContent()
+    {
+        saveItemData.Itens = this.Itens;
+        saveItemData.numItens = this.numItens;
+        saveItemData.InventoryItens = this.InventoryItens;
     }
 
     public void Add(Item item)
@@ -87,6 +103,7 @@ public class InventoryManager : MonoBehaviour
     {
         ListItens();
         itensAchados.text = numItens.ToString();
+        saveContent();
     }
 
     public void SetInventoryItens() {
@@ -96,5 +113,3 @@ public class InventoryManager : MonoBehaviour
         }
     }
 }
-
-
