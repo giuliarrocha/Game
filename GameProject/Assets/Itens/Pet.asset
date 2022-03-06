@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   itemName: garrafa Pet
-  quant: 0
+  quant: 2
   quantMax: 1
   icon: {fileID: 21300000, guid: 80c15013018afbd499674bb9563525fb, type: 3}
   itemType: 7

@@ -12,6 +12,7 @@ public class ButtonClick : EventTrigger
     public string CustomDetails; // texto da descricao
     public Animator Info;
     public AudioSource open, close;
+    public GameManager m_Manager;
 
     public void config(GameObject InfoDetails, TextMeshProUGUI Details, string CustomDetails, Animator Info, AudioSource open, AudioSource close)
     {
@@ -21,12 +22,17 @@ public class ButtonClick : EventTrigger
         this.Info = Info;
         this.open = open;
         this.close = close;
+        
+        GameObject controlCenter = GameObject.Find("ControlCenter");
+        m_Manager = controlCenter.GetComponent<GameManager>();
     }
 
     public override void OnInitializePotentialDrag(PointerEventData data)
     {
-        if(Input.GetMouseButtonDown(0)) Debug.Log("Pressed left click.");
-
+        if(Input.GetMouseButtonDown(0)) {
+            //Debug.Log("Pressed left click.");
+            m_Manager.CursorTurnIntoObject(true);
+        }
         if(Input.GetMouseButtonDown(1))
         {
             //Debug.Log("Pressed right click.");

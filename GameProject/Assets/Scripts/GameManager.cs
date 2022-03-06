@@ -8,17 +8,31 @@ public class GameManager : MonoBehaviour
     private Texture m_CurrentCursor;
     private bool m_Navigating;
     public Texture m_MouseOver;
+    public bool segurandoObj;
+    public GameObject prefabLatinha;
+    public GameObject obj;
     void Start()
     {
         m_CurrentCursor = DefaultCursor;
+        segurandoObj = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_Navigating = Input.GetButton ("Horizontal")
-        || Input.GetButton ("Vertical")
-        || Input.GetButton ("Turn");  
+        if (segurandoObj) {
+            //nao funciona
+            Vector3 novaPosicao = Input.mousePosition;
+            novaPosicao.z = 2.0f;
+            Vector3 objectPos = Camera.main.ScreenToWorldPoint(novaPosicao);
+            prefabLatinha.transform.position = novaPosicao;
+        }
+        else {
+            m_Navigating = Input.GetButton ("Horizontal")
+            || Input.GetButton ("Vertical")
+            || Input.GetButton ("Turn"); 
+        }
+        
     }
     
     public void CursorTextureChange(bool change) {
@@ -27,6 +41,21 @@ public class GameManager : MonoBehaviour
     }
     public void CursorTextureDefault() {
         m_CurrentCursor = DefaultCursor;
+    }
+
+    public void CursorTurnIntoObject(bool change) {
+        Debug.Log("clico");
+        //Vector3 mousePos = Input.mousePosition;
+        //mousePos.z = 2.0f;       // we want 2m away from the camera position
+        //Instantiate(prefabLatinha, Camera.current.ScreenToWorldPoint(mousePos), Quaternion.identity);
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 2.0f;
+        mousePos.y += 12.0f;
+        Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
+        //Instantiate(yourPrefab, objectPos, Quaternion.identity);
+        //Vector3 cursorPos = Input.mousePosition;
+        Instantiate (prefabLatinha, objectPos, Quaternion.identity);
+        segurandoObj = change;
     }
     
     void OnGUI() {
