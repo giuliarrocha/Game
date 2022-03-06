@@ -6,7 +6,7 @@ public class Water : MonoBehaviour
 {
     public Animator water;
     
-    private void OnTriggerEnter(Collider other)
+    void OnMouseDown()
     {
         water.SetBool("falling", true);
         //Debug.Log("down");

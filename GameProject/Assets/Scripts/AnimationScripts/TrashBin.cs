@@ -7,25 +7,22 @@ public class TrashBin : MonoBehaviour
     public Animator bin;
     public AudioSource open, close;
 
-    private void OnTriggerEnter(Collider other)
+    void OnMouseDown()
     {
         bin.SetBool("move", true);
         open.Play();
-    }
-    
-    private void OnTriggerExit(Collider other)
-    {
-        bin.SetBool("move", false);
         StartCoroutine(DelayCoroutine());
     }
 
     IEnumerator DelayCoroutine()
     {
-        //yield on a new YieldInstruction that waits for x seconds.
-        yield return new WaitForSeconds(0.90f);
-
-        //After we have waited
-        //
+        yield return new WaitForSeconds(3f);
+        bin.SetBool("move", false);
+        StartCoroutine(DelayCoroutine2());
+    }
+    IEnumerator DelayCoroutine2()
+    {
+        yield return new WaitForSeconds(0.20f);
         close.Play();
     }
 }

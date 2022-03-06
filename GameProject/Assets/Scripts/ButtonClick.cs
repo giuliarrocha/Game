@@ -43,8 +43,9 @@ public class ButtonClick : EventTrigger
             }
             else
             {
-                InfoDetails.SetActive(!InfoDetails.activeSelf);
-                StartCoroutine(DelayCoroutine2());
+                InfoDetails.SetActive(true);
+                Info.SetBool("change", true);
+                open.Play();
             }
             
         }
@@ -56,12 +57,6 @@ public class ButtonClick : EventTrigger
     {
         yield return new WaitForSeconds(0.50f);
         InfoDetails.SetActive(!InfoDetails.activeSelf);
-    }
-    IEnumerator DelayCoroutine2()
-    {
-        yield return new WaitForSeconds(0.50f);
-        Info.SetBool("change", true);
-        open.Play();
     }
 
 
