@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Texture m_MouseOver;
     public bool segurandoObj;
     public GameObject prefabLatinha;
-    public GameObject obj;
+    public GameObject prefab;
     void Start()
     {
         m_CurrentCursor = DefaultCursor;
@@ -22,10 +22,7 @@ public class GameManager : MonoBehaviour
     {
         if (segurandoObj) {
             //nao funciona
-            Vector3 novaPosicao = Input.mousePosition;
-            novaPosicao.z = 2.0f;
-            Vector3 objectPos = Camera.main.ScreenToWorldPoint(novaPosicao);
-            prefabLatinha.transform.position = novaPosicao;
+            atualizaPosObj();
         }
         else {
             m_Navigating = Input.GetButton ("Horizontal")
@@ -44,19 +41,22 @@ public class GameManager : MonoBehaviour
     }
 
     public void CursorTurnIntoObject(bool change) {
-        Debug.Log("clico");
-        //Vector3 mousePos = Input.mousePosition;
-        //mousePos.z = 2.0f;       // we want 2m away from the camera position
-        //Instantiate(prefabLatinha, Camera.current.ScreenToWorldPoint(mousePos), Quaternion.identity);
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 2.0f;
-        mousePos.y += 12.0f;
+        mousePos.y = Screen.height - mousePos.y - 5.0f;
         Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-        //Instantiate(yourPrefab, objectPos, Quaternion.identity);
-        //Vector3 cursorPos = Input.mousePosition;
-        Instantiate (prefabLatinha, objectPos, Quaternion.identity);
+        prefab = Instantiate (prefabLatinha, objectPos, Quaternion.identity);
         segurandoObj = change;
     }
+
+    public void atualizaPosObj() {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
+        objectPos.y -= 0.3f;
+        objectPos.z += 0.8f;
+        prefab.transform.position = objectPos;
+        //prefab.transform.rotation.y = Camera.main.transform.rotation.y;
+    }
+    
     
     void OnGUI() {
         if (!m_Navigating) {

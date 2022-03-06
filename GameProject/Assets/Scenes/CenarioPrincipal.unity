@@ -3529,7 +3529,7 @@ MonoBehaviour:
   segurandoObj: 0
   prefabLatinha: {fileID: -927199367670048503, guid: 115bb14048f77fb44a4b84e568911321,
     type: 3}
-  obj: {fileID: 0}
+  prefab: {fileID: 0}
 --- !u!4 &332944232
 Transform:
   m_ObjectHideFlags: 0
@@ -21823,6 +21823,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8be4690a78218204b8991b3dd9cfaf70, type: 3}
       propertyPath: m_Name
       value: FPAdventureController
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8be4690a78218204b8991b3dd9cfaf70, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8be4690a78218204b8991b3dd9cfaf70, type: 3}
       propertyPath: m_LocalPosition.x
