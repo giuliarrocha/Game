@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
         m_CurrentCursor = change ?
         m_MouseOver : DefaultCursor;
     }
+    public void CursorTextureDefault() {
+        m_CurrentCursor = DefaultCursor;
+    }
     
     void OnGUI() {
         if (!m_Navigating) {
