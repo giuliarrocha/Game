@@ -25,10 +25,8 @@ public class InventoryManager : MonoBehaviour
     public AudioSource open, close;
 
     public Data saveItemData;
-    public MensagemColeta mensagem;
     public GameObject mensagemPrefab;
     public Transform canvas;
-    public Animator mensagemAnimator;
     private GameObject instanciaMensagem;
 
     private void Awake()
@@ -37,8 +35,6 @@ public class InventoryManager : MonoBehaviour
 
         Details = InfoDetails.transform.Find("Details").GetComponent<TextMeshProUGUI>();
         InfoDetails.SetActive(false);
-        instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
-        instanciaMensagem.SetActive(false);
 
         if(saveItemData.numItens != -1)
         {
@@ -73,14 +69,19 @@ public class InventoryManager : MonoBehaviour
         numItens++;
         update();
         
+        // salva posicao dos itens ja clicados
+        if(Data.casa)
+            saveItemData.ItensCasa.Add(item.posicao);
+        else 
+            saveItemData.ItensPraia.Add(item.posicao);
+
         // pop-up MensagemColeta
+        instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
         MostraMensagem(item);
     }
 
     public void MostraMensagem(Item item)
     {
-        
-        instanciaMensagem.SetActive(true);
         var nomeItem = instanciaMensagem.transform.Find("NomeItem").GetComponent<TextMeshProUGUI>();
         var itemIcon = instanciaMensagem.transform.Find("IconItem").GetComponent<UnityEngine.UI.Image>();
         var numColetado = instanciaMensagem.transform.Find("NumColetado").GetComponent<TextMeshProUGUI>();
@@ -90,23 +91,24 @@ public class InventoryManager : MonoBehaviour
         itemIcon.sprite = item.icon;
         numColetado.text = item.quant.ToString();
         numMax.text = item.quantMax.ToString();
-
-        mensagemAnimator.SetBool("change", true);
-        open.Play();
-        mensagemAnimator.SetBool("change", false);
         StartCoroutine(DelayCoroutine());
     }
 
     IEnumerator DelayCoroutine()
     {
-        yield return new WaitForSeconds(1f);
-        close.Play();
-        instanciaMensagem.SetActive(false);
+        yield return new WaitForSeconds(1.6f);
+        Destroy(instanciaMensagem);
     }
 
     public void Remove(Item item)
     {
         Itens.Remove(item);
+        
+        if(Data.casa)
+            saveItemData.ItensCasa.Remove(item.posicao);
+        else 
+            saveItemData.ItensPraia.Remove(item.posicao);
+        
         update();
     }
 

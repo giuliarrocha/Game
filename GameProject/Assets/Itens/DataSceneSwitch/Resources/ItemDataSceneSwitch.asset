@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad9769d0e8c45c488672ae96a848c7e, type: 3}
+  m_Name: ItemDataSceneSwitch
+  m_EditorClassIdentifier: 
+  Itens:
+  - {fileID: 11400000, guid: 13e9951a98c1b5d47b697469b65b5f16, type: 2}
+  - {fileID: 11400000, guid: f838f1101dffadc45906bb359dd178aa, type: 2}
+  - {fileID: 11400000, guid: 0880d3c1a579f8f4ca2ad9b140cfcdc7, type: 2}
+  numItens: 3

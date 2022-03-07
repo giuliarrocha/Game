@@ -26,4 +26,7 @@ public class Item : ScriptableObject
         Remedio,
         Sacola
     }
+    
+    // para nao mostrar mais lixo ja pego quando muda de cena e volta
+    public Vector3 posicao = new Vector3(0,0,0);
 }

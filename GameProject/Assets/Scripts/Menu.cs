@@ -10,6 +10,8 @@ public class Menu : MonoBehaviour
         saveItemData.Itens = null;
         saveItemData.numItens = -1;
         saveItemData.InventoryItens = null;
+        saveItemData.ItensCasa = null;
+        saveItemData.ItensPraia = new List<Vector3>();
 
         SceneManager.LoadScene(indexScene);
     }

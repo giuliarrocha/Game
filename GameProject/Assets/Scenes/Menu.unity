@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df80a66f7d82a204d82e0470e48254fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveItemData: {fileID: 11400000, guid: e91c6624c7a5dbb4dbb78fe9ad786c87, type: 2}
+  saveItemData: {fileID: 11400000, guid: 0ac49a716685ece4eb92f0a68dcb3542, type: 2}
 --- !u!1 &333502234
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +170,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultCursor: {fileID: 2800000, guid: cf483e4a1f194244ba9760b7d9ca37bd, type: 3}
   m_MouseOver: {fileID: 2800000, guid: 639366b78b2ad084188831a3f1dd2711, type: 3}
+  segurandoObj: 0
+  prefabLatinha: {fileID: 0}
+  prefab: {fileID: 0}
 --- !u!4 &333502236
 Transform:
   m_ObjectHideFlags: 0
