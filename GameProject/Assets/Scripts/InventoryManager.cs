@@ -34,7 +34,6 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
 
         Details = InfoDetails.transform.Find("Details").GetComponent<TextMeshProUGUI>();
-        InfoDetails.SetActive(false);
 
         if(saveItemData.numItens != -1)
         {

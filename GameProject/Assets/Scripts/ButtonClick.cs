@@ -31,7 +31,9 @@ public class ButtonClick : EventTrigger
     {
         if(Input.GetMouseButtonDown(0)) {
             //Debug.Log("Pressed left click.");
-            m_Manager.CursorTurnIntoObject(true);
+            m_Manager.CursorTurnIntoObject(!m_Manager.segurandoObj);
+            if(!m_Manager.segurandoObj)
+                Destroy(m_Manager.prefab);
         }
         if(Input.GetMouseButtonDown(1))
         {

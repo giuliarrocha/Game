@@ -8,20 +8,24 @@ public class GameManager : MonoBehaviour
     private Texture m_CurrentCursor;
     private bool m_Navigating;
     public Texture m_MouseOver;
+    // para quando seleciona lixo
     public bool segurandoObj;
     public GameObject prefabLatinha;
     public GameObject prefab;
+    private Vector3 prefabPosAnterior;
+
     void Start()
     {
         m_CurrentCursor = DefaultCursor;
         segurandoObj = false;
+
+        prefabPosAnterior = new Vector3(0,0,0);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (segurandoObj) {
-            //nao funciona
             atualizaPosObj();
         }
         else {
@@ -41,22 +45,37 @@ public class GameManager : MonoBehaviour
     }
 
     public void CursorTurnIntoObject(bool change) {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.y = Screen.height - mousePos.y - 5.0f;
-        Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-        prefab = Instantiate (prefabLatinha, objectPos, Quaternion.identity);
         segurandoObj = change;
+        if(segurandoObj)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.y = Screen.height - mousePos.y - 5.0f;
+            Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
+            prefab = Instantiate (prefabLatinha, objectPos, Quaternion.identity);
+        }
     }
 
     public void atualizaPosObj() {
+
         Vector3 mousePos = Input.mousePosition;
-        Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-        objectPos.y -= 0.3f;
-        objectPos.z += 0.8f;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            // Debug.Log("ray "+raycastHit.point);
+            if(Vector3.Distance(Camera.main.transform.position, raycastHit.point) < 1.72)
+                prefabPosAnterior = raycastHit.point;
+            
+            // Debug.Log("camera e hit "+Vector3.Distance(Camera.main.transform.position, raycastHit.point));
+            // Debug.Log("prefab e hit "+ Vector3.Distance(prefab.transform.position, raycastHit.point));
+            // Debug.Log("prefab e camera "+ Vector3.Distance(prefab.transform.position, Camera.main.transform.position));
+        }
+        Vector3 objectPos = prefabPosAnterior;
+        // objectPos.x -= prefab.transform.GetComponent<Renderer>().bounds.size.x/2f;
+        // objectPos.y -= prefab.transform.GetComponent<Renderer>().bounds.size.y/2f;
+        objectPos.z -= prefab.transform.GetComponent<Renderer>().bounds.size.z/2f;
         prefab.transform.position = objectPos;
-        //prefab.transform.rotation.y = Camera.main.transform.rotation.y;
     }
-    
     
     void OnGUI() {
         if (!m_Navigating) {
