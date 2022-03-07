@@ -69,12 +69,6 @@ public class InventoryManager : MonoBehaviour
         numItens++;
         update();
         
-        // salva posicao dos itens ja clicados
-        if(Data.casa)
-            saveItemData.ItensCasa.Add(item.posicao);
-        else 
-            saveItemData.ItensPraia.Add(item.posicao);
-
         // pop-up MensagemColeta
         instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
         MostraMensagem(item);
@@ -102,13 +96,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Remove(Item item)
     {
-        Itens.Remove(item);
-        
-        if(Data.casa)
-            saveItemData.ItensCasa.Remove(item.posicao);
-        else 
-            saveItemData.ItensPraia.Remove(item.posicao);
-        
+        Itens.Remove(item);        
         update();
     }
 

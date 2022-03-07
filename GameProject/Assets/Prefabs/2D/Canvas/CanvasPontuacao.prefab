@@ -280,15 +280,14 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.37681815, z: 1}
-  m_Children:
-  - {fileID: 6732763682304791820}
+  m_Children: []
   m_Father: {fileID: 6732763682136187317}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 124, y: -18.9}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 321, y: -25.7}
+  m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6732763682032579455
 CanvasRenderer:
@@ -316,7 +315,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "   Descri\xE7\xE3o"
+  m_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum
+    rhoncus vulputate. Sed ac augue euismod, tempor dolor interdum, venenatis mauris.
+    Sed aliquam nunc vel accumsan congue.\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdcccca7c044a9b4ab7bf58f51686895, type: 2}
   m_sharedMaterial: {fileID: -6802776010477571396, guid: cdcccca7c044a9b4ab7bf58f51686895,
@@ -351,7 +352,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -362,7 +363,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 184
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -383,24 +384,24 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -45.590088, w: 0}
+  m_margin: {x: 0, y: 0, z: -26.126831, w: -143.75012}
   m_textInfo:
     textComponent: {fileID: 6732763682032579328}
-    characterCount: 12
+    characterCount: 194
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 2
+    spaceCount: 28
+    wordCount: 27
     linkCount: 0
-    lineCount: 1
+    lineCount: 8
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
-  - {fileID: 6732763682304791819}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -438,7 +439,7 @@ RectTransform:
   m_GameObject: {fileID: 6732763682136187318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2.6538, z: 1}
+  m_LocalScale: {x: 1, y: 2.0236819, z: 1}
   m_Children:
   - {fileID: 6732763682880422832}
   - {fileID: 6732763682032579329}
@@ -447,7 +448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 32, y: 293.73413}
+  m_AnchoredPosition: {x: 5, y: 250}
   m_SizeDelta: {x: 670, y: 108.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6732763682136187314
@@ -569,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00005964726, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6732763682197831482
@@ -611,78 +612,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
---- !u!1 &6732763682304791821
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6732763682304791820}
-  - component: {fileID: 6732763682304791818}
-  - component: {fileID: 6732763682304791819}
-  m_Layer: 5
-  m_Name: TMP SubMeshUI [soupofjustice SDF Material + LiberationSans SDF Atlas]
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6732763682304791820
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732763682304791821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6732763682032579329}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6732763682304791818
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732763682304791821}
-  m_CullTransparentMesh: 0
---- !u!114 &6732763682304791819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732763682304791821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
-  m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
-  m_padding: 7.326688
-  m_canvasRenderer: {fileID: 6732763682304791818}
-  m_TextComponent: {fileID: 6732763682032579328}
-  m_materialReferenceIndex: 1
 --- !u!1 &6732763682463921975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,10 +1202,10 @@ MonoBehaviour:
   Info: {fileID: 6732763682136187313}
   open: {fileID: 6732763683240746705}
   close: {fileID: 6732763683240746705}
-  saveItemData: {fileID: 11400000, guid: e91c6624c7a5dbb4dbb78fe9ad786c87, type: 2}
-  mensagem: {fileID: 0}
-  mensagemPrefab: {fileID: 0}
-  canvas: {fileID: 0}
+  saveItemData: {fileID: 11400000, guid: 0ac49a716685ece4eb92f0a68dcb3542, type: 2}
+  mensagemPrefab: {fileID: 7228529346691333482, guid: c7c22183cff4aa1489b4d5a1c357ce77,
+    type: 3}
+  canvas: {fileID: 6732763681384237646}
 --- !u!1 &6732763683081331805
 GameObject:
   m_ObjectHideFlags: 0

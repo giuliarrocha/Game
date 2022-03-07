@@ -12,10 +12,6 @@ public class MensagemColetaAnimation : MonoBehaviour
     {
         Animator animator = this.GetComponent<Animator>();
         animator.runtimeAnimatorController = controller;
-        // animator.SetBool("change", true);
-        // Debug.Log(animator.GetBool("change"));
-        // open.Play();
-        // animator.SetBool("change", false);
-        // Debug.Log(animator.GetBool("change"));
+        open.Play();
     }
 }
