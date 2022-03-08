@@ -18,3 +18,4 @@ MonoBehaviour:
   quantMax: 1
   icon: {fileID: 21300000, guid: 96af325f578139949bb647d13cdde7a7, type: 3}
   itemType: 4
+  passoIntermediario: 1

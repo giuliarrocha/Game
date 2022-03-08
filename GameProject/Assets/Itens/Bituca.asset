@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bituca
   m_EditorClassIdentifier: 
   id: 4
-  itemName: Bituca Cigarro
-  value: 0
+  itemName: Bituca de Cigarro
   quant: 0
   quantMax: 3
   icon: {fileID: 21300000, guid: 0c363d808337ad04ab12f86aeedd56f3, type: 3}
+  itemType: 0

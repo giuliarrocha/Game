@@ -172,7 +172,19 @@ MonoBehaviour:
   m_MouseOver: {fileID: 2800000, guid: 639366b78b2ad084188831a3f1dd2711, type: 3}
   segurandoObj: 0
   prefabLatinha: {fileID: 0}
+  prefabBituca: {fileID: 0}
+  prefabCaixa: {fileID: 0}
+  prefabCanudo: {fileID: 0}
+  prefabComida: {fileID: 0}
+  prefabGarVidro: {fileID: 0}
+  prefabPapel: {fileID: 0}
+  prefabPet: {fileID: 0}
+  prefabPilha: {fileID: 0}
+  prefabRemedio: {fileID: 0}
+  prefabPapelao: {fileID: 0}
   prefab: {fileID: 0}
+  idObj: 0
+  inventario: {fileID: 0}
 --- !u!4 &333502236
 Transform:
   m_ObjectHideFlags: 0

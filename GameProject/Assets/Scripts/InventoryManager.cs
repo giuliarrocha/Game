@@ -63,6 +63,11 @@ public class InventoryManager : MonoBehaviour
         }
         if (!achou) {
             item.quant = 1;
+            item.jogado = false;
+            if (item.id==1 || item.id==6 || item.id==7)
+                item.passoIntermediario = true;
+            else
+                item.passoIntermediario = false;
             Itens.Add(item);
         }
         numItens++;
@@ -115,8 +120,10 @@ public class InventoryManager : MonoBehaviour
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
-            itemQtd.text = item.quant.ToString() + " / " + item.quantMax.ToString();
-
+            if (!item.jogado)
+                itemQtd.text = item.quant.ToString() + " / " + item.quantMax.ToString();
+            else   
+                Destroy(itemQtd);
             ButtonClick btn = obj.AddComponent<ButtonClick>();
             btn.config(InfoDetails, Details, itemName.text, Info, open, close);
         }

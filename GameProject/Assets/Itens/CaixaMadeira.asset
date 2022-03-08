@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: CaixaMadeira
   m_EditorClassIdentifier: 
   id: 3
-  itemName: caixa de madeira
-  quant: 3
+  itemName: Caixa de Madeira
+  quant: 1
   quantMax: 3
   icon: {fileID: 21300000, guid: 49b46f27adf69bc42bf357e5473f4520, type: 3}
   itemType: 1
+  passoIntermediario: 0

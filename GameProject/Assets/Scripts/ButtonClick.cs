@@ -10,6 +10,7 @@ public class ButtonClick : EventTrigger
     public GameObject InfoDetails; // tela de fundo do pop-up
     public TextMeshProUGUI Details; // referencia ao campo de texto para imprimir a descricao
     public string CustomDetails; // texto da descricao
+    public string nomeObjSegurado; //nome do objeto selecionado no inventario
     public Animator Info;
     public AudioSource open, close;
     public GameManager m_Manager;
@@ -22,6 +23,7 @@ public class ButtonClick : EventTrigger
         this.Info = Info;
         this.open = open;
         this.close = close;
+        this.nomeObjSegurado = CustomDetails;
         
         GameObject controlCenter = GameObject.Find("ControlCenter");
         m_Manager = controlCenter.GetComponent<GameManager>();
@@ -31,7 +33,7 @@ public class ButtonClick : EventTrigger
     {
         if(Input.GetMouseButtonDown(0)) {
             //Debug.Log("Pressed left click.");
-            m_Manager.CursorTurnIntoObject(!m_Manager.segurandoObj);
+            m_Manager.CursorTurnIntoObject(!m_Manager.segurandoObj, nomeObjSegurado);
             if(!m_Manager.segurandoObj)
                 Destroy(m_Manager.prefab);
         }

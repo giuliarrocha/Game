@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Papel
   m_EditorClassIdentifier: 
   id: 2
-  itemName: papel
+  itemName: Papel
   quant: 0
   quantMax: 3
   icon: {fileID: 21300000, guid: 253e35e0387a3cb42a38bf93eea2c42b, type: 3}
