@@ -10,18 +10,28 @@ public class TrashBin : MonoBehaviour
     public Animator bin;
     public int idTrash; //1-Papel (azul), 2-Vidro (verde), 3-Plastico (vermelho), 4-Metal (amarelo), 5-Organico (marrom)
     public AudioSource open, close;
-    public GameManager m_Manager;
+    private GameManager m_Manager;
     public TextMeshProUGUI itensAchados;
+    public Transform canvas;
+    public GameObject mensagemPrefabAcaoEfetuada, mensagemPrefabErro;
+    private GameObject instanciaMensagemAcaoEfetuada, instanciaMensagemErro;
 
     void Start() {
         GameObject controlCenter = GameObject.Find("ControlCenter");
         m_Manager = controlCenter.GetComponent<GameManager>();
+
     }
 
     void OnMouseDown()
     {
         bool abrir = false;
         bool naoJogar = false;
+        string texto = "";
+        if(instanciaMensagemErro)
+            Destroy(instanciaMensagemErro);
+        if(instanciaMensagemAcaoEfetuada)
+            Destroy(instanciaMensagemAcaoEfetuada);
+        
         foreach (var x in m_Manager.inventario.Itens) {
             if (x.id == m_Manager.idObj) {
                 if(x.passoIntermediario)
@@ -40,7 +50,7 @@ public class TrashBin : MonoBehaviour
                 //Lixos = Garrafa Vidro (id=6)
                 if (naoJogar) {
                     abrir = false;
-                    Debug.Log("Lixo necessita de tratamento previo");
+                    texto = "Lixo necessita de tratamento previo";
                 }
                 else
                     abrir = true;
@@ -51,7 +61,7 @@ public class TrashBin : MonoBehaviour
                 //Lixos = Pet (id=7), Canudo (id=11)
                 if (m_Manager.idObj==7 && naoJogar) {
                     abrir = false;
-                    Debug.Log("Lixo necessita de tratamento previo");
+                    texto = "Lixo necessita de tratamento previo";
                 }
                 else
                     abrir = true;
@@ -62,7 +72,7 @@ public class TrashBin : MonoBehaviour
                 //Lixos = Latinha (id=1)
                 if (naoJogar) {
                     abrir = false;
-                    Debug.Log("Lixo necessita de tratamento previo");
+                    texto = "Lixo necessita de tratamento previo";
                 }
                 else
                     abrir = true;
@@ -72,31 +82,42 @@ public class TrashBin : MonoBehaviour
                 abrir = true; 
                 //Lixeira para Organico (marrom)
                 //Lixos = Comida (id=5)
+                if (naoJogar) {
+                    abrir = false;
+                    texto = "Lixo necessita de tratamento previo";
+                }
+                else
+                    abrir = true;
                 
             }
             else {
-                Debug.Log("Local incorreto para o descarte do lixo");
+                texto = "Local incorreto para o descarte do lixo";
                 abrir = false; 
             }
         }
         else {
-            Debug.Log("Não ha nada a ser jogado");
-            abrir = false; 
+            texto = "Nao ha nada a ser jogado";
+            abrir = false;
         }
         
         if(abrir) {
-            Debug.Log("Jogado!");
+            instanciaMensagemAcaoEfetuada = Instantiate(mensagemPrefabAcaoEfetuada, canvas);
+            var textoAcaoEfetuada = instanciaMensagemAcaoEfetuada.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+            textoAcaoEfetuada.text = "Jogado!";
+
             m_Manager.segurandoObj = false;
             Destroy(m_Manager.prefab);
             m_Manager.atualizaItemStatus(1);
             bin.SetBool("move", true);
             open.Play();
             StartCoroutine(DelayCoroutine());
-
+            return;
             //tratar lixo
         }
 
-
+        instanciaMensagemErro = Instantiate(mensagemPrefabErro, canvas);
+        var textoErro = instanciaMensagemErro.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+        textoErro.text = texto;
     }
 
     IEnumerator DelayCoroutine()
@@ -109,5 +130,5 @@ public class TrashBin : MonoBehaviour
     {
         yield return new WaitForSeconds(0.20f);
         close.Play();
-    }
+    }    
 }
