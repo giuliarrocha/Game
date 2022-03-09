@@ -18,3 +18,11 @@ MonoBehaviour:
   quantMax: 3
   icon: {fileID: 21300000, guid: 0c363d808337ad04ab12f86aeedd56f3, type: 3}
   itemType: 0
+  passoIntermediario: 0
+  jogado: 0
+  podeJogar: 0
+  descricao: "Restos de cigarros s\xE3o os tipos de lixo mais comuns de serem encontrados
+    sem o descarte apropriado, muito encontrados jogados na praia. S\xE3o extremamente
+    perigosos para o solo e para \xE1gua. O filtro do cigarro, tamb\xE9m chamado de
+    bituca, pode ser reciclado e transformado em papel quando enviado para pontos
+    de coleta especializados."

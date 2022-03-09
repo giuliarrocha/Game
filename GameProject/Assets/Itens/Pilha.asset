@@ -18,3 +18,12 @@ MonoBehaviour:
   quantMax: 3
   icon: {fileID: 21300000, guid: bd2657db01cdaf54fbeb34bdf3b08251, type: 3}
   itemType: 8
+  passoIntermediario: 0
+  jogado: 0
+  podeJogar: 0
+  descricao: "O zinco, o chumbo e o mangan\xEAs s\xE3o metais encontrados nas pilhas
+    e quando jogados de maneira incorreta no lixo podem contaminar o solo e o len\xE7ol
+    fre\xE1tico e consequentemente, causar s\xE9rios problemas \xE0 sa\xFAde. Para
+    descart\xE1-las, devem ser entregues aos estabelecimentos que comercializam ou
+    \xE0s assist\xEAncias t\xE9cnicas autorizadas, para que eles repassem os res\xEDduos
+    aos fabricantes ou importadoras."

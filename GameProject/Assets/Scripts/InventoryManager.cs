@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject InfoDetails; // tela de fundo do pop-up
     private TextMeshProUGUI Details; // referencia ao campo de texto do pop-up
-
+    private TextMeshProUGUI Explicacao;
     public Animator Info;
     public AudioSource open, close;
 
@@ -34,6 +34,7 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
 
         Details = InfoDetails.transform.Find("Details").GetComponent<TextMeshProUGUI>();
+        Explicacao = InfoDetails.transform.Find("Explicacao").GetComponent<TextMeshProUGUI>();
 
         if(saveItemData.numItens != -1)
         {
@@ -144,7 +145,7 @@ public class InventoryManager : MonoBehaviour
                 itemConcluido.gameObject.SetActive(true);
             }
             ButtonClick btn = obj.AddComponent<ButtonClick>();
-            btn.config(InfoDetails, Details, itemName.text, Info, open, close);
+            btn.config(InfoDetails, Details, Explicacao, itemName.text, Info, open, close);
         }
 
         SetInventoryItens();

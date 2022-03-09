@@ -15,6 +15,7 @@ public class Item : ScriptableObject
     public bool passoIntermediario;
     public bool jogado;
     public bool podeJogar;
+    public string descricao;
 
     public enum ItemType {
         Bituca,

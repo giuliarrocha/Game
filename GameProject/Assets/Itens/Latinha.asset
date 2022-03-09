@@ -19,3 +19,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 87629fd3bd9cd274e961a28fb2f08407, type: 3}
   itemType: 5
   passoIntermediario: 1
+  jogado: 0
+  podeJogar: 0
+  descricao: "Latas de refrigerante possuem o metal como principal componente e pode
+    demorar mais de mil anos para se desintegrar no meio ambiente, al\xE9m de produzir
+    subst\xE2ncias t\xF3xicas. Se na lata ainda estiver res\xEDduos pode acarretar
+    em mau odor, contamina\xE7\xE3o do lixo ao longo do seu trajeto e tamb\xE9m pode
+    causar doen\xE7as aos trabalhadores que o manuseiam. \xC9 importante uma lavagem
+    do material antes de seu descarte para reciclagem."

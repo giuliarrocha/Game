@@ -8,17 +8,19 @@ using UnityEngine.EventSystems; // Required when using Event data.
 public class ButtonClick : EventTrigger
 {
     public GameObject InfoDetails; // tela de fundo do pop-up
-    public TextMeshProUGUI Details; // referencia ao campo de texto para imprimir a descricao
+    public TextMeshProUGUI Details;
+    public TextMeshProUGUI Explicacao; // referencia ao campo de texto para imprimir a descricao
     public string CustomDetails; // texto da descricao
     public string nomeObjSegurado; //nome do objeto selecionado no inventario
     public Animator Info;
     public AudioSource open, close;
     public GameManager m_Manager;
 
-    public void config(GameObject InfoDetails, TextMeshProUGUI Details, string CustomDetails, Animator Info, AudioSource open, AudioSource close)
+    public void config(GameObject InfoDetails, TextMeshProUGUI Details, TextMeshProUGUI Explicacao, string CustomDetails, Animator Info, AudioSource open, AudioSource close)
     {
         this.InfoDetails = InfoDetails;
         this.Details = Details;
+        this.Explicacao = Explicacao;
         this.CustomDetails = CustomDetails;
         this.Info = Info;
         this.open = open;

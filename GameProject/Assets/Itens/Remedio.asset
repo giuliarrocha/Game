@@ -20,3 +20,8 @@ MonoBehaviour:
   itemType: 9
   passoIntermediario: 0
   jogado: 1
+  podeJogar: 0
+  descricao: "Medicamentos descartados na pia, no vaso sanit\xE1rio e no lixo comum
+    podem levar \xE0 contamina\xE7\xE3o do solo e da \xE1gua de len\xE7\xF3is fre\xE1ticos,
+    com impactos negativos para a flora e a fauna da regi\xE3o. Muitas farm\xE1cias
+    fazem a coleta adequada dos medicamentos vencidos."

@@ -19,3 +19,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f509d21610c7bd84fab6b9301bdbc96c, type: 3}
   itemType: 3
   passoIntermediario: 0
+  jogado: 0
+  podeJogar: 0
+  descricao: "Seu descarte incorreto no ambiente pode resultar em contamina\xE7\xE3o
+    do solo e \xE1gua e entupimentos nos canais de \xE1gua e esgoto da cidade. Seu
+    descarte correto pode resultar em adubo para plantas e fonte de energia el\xE9trica
+    em aterros sanit\xE1rios."

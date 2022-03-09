@@ -18,3 +18,8 @@ MonoBehaviour:
   quantMax: 3
   icon: {fileID: 21300000, guid: 253e35e0387a3cb42a38bf93eea2c42b, type: 3}
   itemType: 6
+  passoIntermediario: 0
+  jogado: 0
+  podeJogar: 0
+  descricao: "Livros e folhas de pap\xE9is quando jogados nas ruas das cidades podem
+    entupir os bueiros e, com as chuvas, causar enchentes e inunda\xE7\xF5es."
