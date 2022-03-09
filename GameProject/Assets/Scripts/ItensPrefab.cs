@@ -7,5 +7,4 @@ public class ItensPrefab : MonoBehaviour
     public GameObject prefab;
     public int idObj;
     public int selecionado;
-    
 }

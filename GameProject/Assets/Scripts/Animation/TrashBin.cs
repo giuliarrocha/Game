@@ -15,6 +15,8 @@ public class TrashBin : MonoBehaviour
     public Transform canvas;
     public GameObject mensagemPrefabAcaoEfetuada, mensagemPrefabErro;
     private GameObject instanciaMensagemAcaoEfetuada, instanciaMensagemErro;
+    public Data saveItemData;
+    public TextMeshProUGUI numErros;
 
     void Start() {
         GameObject controlCenter = GameObject.Find("ControlCenter");
@@ -50,7 +52,8 @@ public class TrashBin : MonoBehaviour
                     //Lixos = Garrafa Vidro (id=6)
                     if (naoJogar) {
                         abrir = false;
-                        texto = "Lixo necessita de tratamento previo";
+                        texto = "O lixo necessita de tratamento prévio!";
+                        numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
                         abrir = true;
@@ -61,7 +64,8 @@ public class TrashBin : MonoBehaviour
                     //Lixos = Pet (id=7), Canudo (id=11)
                     if (m_Manager.idObj==7 && naoJogar) {
                         abrir = false;
-                        texto = "Lixo necessita de tratamento previo";
+                        texto = "O lixo necessita de tratamento prévio!";
+                        numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
                         abrir = true;
@@ -72,7 +76,8 @@ public class TrashBin : MonoBehaviour
                     //Lixos = Latinha (id=1)
                     if (naoJogar) {
                         abrir = false;
-                        texto = "Lixo necessita de tratamento previo";
+                        texto = "O lixo necessita de tratamento prévio!";
+                        numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
                         abrir = true;
@@ -84,25 +89,29 @@ public class TrashBin : MonoBehaviour
                     //Lixos = Comida (id=5)
                     if (naoJogar) {
                         abrir = false;
-                        texto = "Lixo necessita de tratamento previo";
+                        texto = "O lixo necessita de tratamento prévio!";
+                        numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
                         abrir = true;
                     
                 }
                 else {
-                    texto = "Local incorreto para o descarte do lixo";
+                    texto = "Local incorreto para o descarte do lixo!";
+                    numErros.text = (++saveItemData.numErros).ToString();
                     abrir = false; 
                 }
             }
             else {
-                texto = "Nao ha nada a ser jogado";
+                texto = "Não há nada a ser jogado!";
                 abrir = false;
+                numErros.text = (++saveItemData.numErros).ToString();
             }
         }
         else {
-                texto = "Todos os lixos precisam ser coletados primeiro";
+                texto = "Todos os lixos precisam ser coletados primeiro!";
                 abrir = false;
+                numErros.text = (++saveItemData.numErros).ToString();
         }    
         
         if(abrir) {

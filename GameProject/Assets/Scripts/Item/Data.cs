@@ -14,6 +14,8 @@ public class Data : ScriptableObject
     public static bool casa = false;
     public List<Vector3> ItensCasa = new List<Vector3>();
     public List<Vector3> ItensPraia = new List<Vector3>();
+    public int numErros = 0;
+    public int numJogados = 0;
 
 
     

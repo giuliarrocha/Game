@@ -14,6 +14,8 @@ public class Car : MonoBehaviour
     public GameObject mensagemPrefabAcaoEfetuada, mensagemPrefabErro;
     private GameObject instanciaMensagemAcaoEfetuada, instanciaMensagemErro;
     public TextMeshProUGUI itensAchados;
+    public Data saveItemData;
+    public TextMeshProUGUI numErros;
 
     void Start() {
         totalItens = 0;
@@ -39,28 +41,30 @@ public class Car : MonoBehaviour
                     totalItens++;
                     guardaItemCarro = true;
                     if (totalItens==4)
-                        andar = true; 
-                    
+                        andar = true;
                 }
                 else {
-                    texto = "Local incorreto para descarte do lixo.";
+                    texto = "Local incorreto para o descarte do lixo!";
                     andar = false;
+                    numErros.text = (++saveItemData.numErros).ToString();
                 }
             }
             else {
-                texto = "Nao ha nada a ser jogado";
-                andar = false; 
+                texto = "Não há nada a ser guardado!";
+                andar = false;
+                numErros.text = (++saveItemData.numErros).ToString();
             }
         }
         else {
-            texto = "Todos os lixos precisam ser coletados primeiro";
+            texto = "Todos os lixos precisam ser coletados primeiro!";
             andar = false;
+            numErros.text = (++saveItemData.numErros).ToString();
         }
         
         if(guardaItemCarro) {
             instanciaMensagemAcaoEfetuada = Instantiate(mensagemPrefabAcaoEfetuada, canvas);
             var textoAcaoEfetuada = instanciaMensagemAcaoEfetuada.transform.Find("Text").GetComponent<TextMeshProUGUI>();
-            textoAcaoEfetuada.text = "Item Guardado!";
+            textoAcaoEfetuada.text = "Item guardado!";
             m_Manager.segurandoObj = false;
             Destroy(m_Manager.prefab);
             m_Manager.atualizaItemStatus(1);

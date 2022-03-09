@@ -7,7 +7,6 @@ using TMPro;
 public class SceneSwitch : MonoBehaviour
 {
     public int scene;
-    private bool entra = false;
     public Transform canvas;
     public GameObject mensagemPrefabAcaoEfetuada;
     private GameObject instanciaMensagemAcaoEfetuada;

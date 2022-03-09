@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     public int idObj;
     private Vector3 prefabPosAnterior;
     public InventoryManager inventario;
+    public Data saveItemData;
 
     void Start()
     {
@@ -45,7 +47,6 @@ public class GameManager : MonoBehaviour
             || Input.GetButton ("Vertical")
             || Input.GetButton ("Turn"); 
         }
-        
     }
     
     public void CursorTextureChange(bool change) {
@@ -66,20 +67,19 @@ public class GameManager : MonoBehaviour
         }
         if(segurandoObj)
         {
-            
             Vector3 mousePos = Input.mousePosition;
             mousePos.y = Screen.height - mousePos.y - 5.0f;
             Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
             switch (nomeObjSegurado) {
                 case "Bituca de Cigarro":
                     prefab = Instantiate (prefabBituca, objectPos, Quaternion.identity);
-                    idObj = 4;
+                    idObj = 4;  
                     break;
                 case "Caixa de Madeira":
                     prefab = Instantiate (prefabCaixa, objectPos, Quaternion.identity);
                     idObj = 3;
                     break;
-                case "Canudo Plastico":
+                case "Canudo Plástico":
                     prefab = Instantiate (prefabCanudo, objectPos, Quaternion.identity);
                     idObj = 11;
                     break;
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
                     prefab = Instantiate (prefabPapel, objectPos, Quaternion.identity);
                     idObj = 2;
                     break;
-                case "Papelao":
+                case "Papelão":
                     prefab = Instantiate (prefabPapelao, objectPos, Quaternion.identity);
                     idObj = 10;
                     break;
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
                     prefab = Instantiate (prefabPilha, objectPos, Quaternion.identity);
                     idObj = 9;
                     break;
-                case "Remedio":
+                case "Remédio":
                     prefab = Instantiate (prefabRemedio, objectPos, Quaternion.identity);
                     idObj = 8;
                     break;
@@ -125,6 +125,11 @@ public class GameManager : MonoBehaviour
                 if (x.id == idObj) {
                     x.jogado = true; //identifica que o objeto foi jogado
                     inventario.update();
+                }
+                // terminar jogo
+                if(++saveItemData.numJogados == 11)
+                {
+                    SceneManager.LoadScene(3);
                 }
             }
         }

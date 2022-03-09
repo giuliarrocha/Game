@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Papelao
   m_EditorClassIdentifier: 
   id: 10
-  itemName: Papelao
+  itemName: "Papel\xE3o"
   quant: 0
   quantMax: 3
   icon: {fileID: 21300000, guid: a4f348b517ee7c2409c0aa592db3d622, type: 3}

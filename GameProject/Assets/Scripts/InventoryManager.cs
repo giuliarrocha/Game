@@ -29,6 +29,8 @@ public class InventoryManager : MonoBehaviour
     public Transform canvas;
     private GameObject instanciaMensagem;
 
+    public GameObject mensagem27ItensPrefab;
+    private GameObject instanciaMensagem27Itens;
     private void Awake()
     {
         Instance = this;
@@ -73,11 +75,23 @@ public class InventoryManager : MonoBehaviour
             Itens.Add(item);
         }
         numItens++;
+
+        if(numItens == 27)
+        {
+            // pop-up Mensagem 27 itens
+            instanciaMensagem27Itens = Instantiate(mensagem27ItensPrefab, canvas);
+            var texto = instanciaMensagem27Itens.transform.Find("Text").GetComponent<TextMeshProUGUI>();
+            texto.text = "Todos os lixos foram coletados!";
+            StartCoroutine(DelayCoroutine2());
+        }
+        else // para mensagens nao se sobreporem
+        {
+            // pop-up MensagemColeta
+            instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
+            MostraMensagem(item);
+        }
+
         update();
-        
-        // pop-up MensagemColeta
-        instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
-        MostraMensagem(item);
     }
 
     public void MostraMensagem(Item item)
@@ -98,6 +112,11 @@ public class InventoryManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.6f);
         Destroy(instanciaMensagem);
+    }
+    IEnumerator DelayCoroutine2()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(instanciaMensagem27Itens);
     }
 
     public void Remove(Item item)

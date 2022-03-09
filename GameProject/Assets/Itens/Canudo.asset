@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Canudo
   m_EditorClassIdentifier: 
   id: 11
-  itemName: Canudo Plastico
+  itemName: "Canudo de Pl\xE1stico"
   quant: 1
   quantMax: 3
   icon: {fileID: 21300000, guid: 62747e830b007564ab0268f43b906366, type: 3}

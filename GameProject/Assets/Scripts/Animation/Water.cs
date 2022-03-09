@@ -12,6 +12,8 @@ public class Water : MonoBehaviour
     public GameObject mensagemPrefabAcaoEfetuada, mensagemPrefabErro;
     private GameObject instanciaMensagemAcaoEfetuada, instanciaMensagemErro;
     public TextMeshProUGUI itensAchados;
+    public Data saveItemData;
+    public TextMeshProUGUI numErros;
 
     void Start() {
         GameObject controlCenter = GameObject.Find("ControlCenter");
@@ -34,18 +36,21 @@ public class Water : MonoBehaviour
                     abrir = true;
                 }
                 else {
-                    texto = "Este lixo nao precisa ser lavado";
-                    abrir = false; 
+                    texto = "Este lixo nao precisa ser lavado!";
+                    abrir = false;
+                    numErros.text = (++saveItemData.numErros).ToString();
                 }
             }
             else {
-                texto = "Nao ha nada a ser lavado";
-                abrir = false; 
+                texto = "Não há nada a ser lavado!";
+                abrir = false;
+                numErros.text = (++saveItemData.numErros).ToString();
             }
         }
         else {
-            texto = "Todos os lixos precisam ser coletados primeiro";
-            abrir = false; 
+            texto = "Todos os lixos precisam ser coletados primeiro!";
+            abrir = false;
+            numErros.text = (++saveItemData.numErros).ToString();
         }
         if(abrir) {
             instanciaMensagemAcaoEfetuada = Instantiate(mensagemPrefabAcaoEfetuada, canvas);
