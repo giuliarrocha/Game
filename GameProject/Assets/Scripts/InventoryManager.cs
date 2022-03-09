@@ -64,6 +64,7 @@ public class InventoryManager : MonoBehaviour
         if (!achou) {
             item.quant = 1;
             item.jogado = false;
+            item.podeJogar = false;
             if (item.id==1 || item.id==6 || item.id==7)
                 item.passoIntermediario = true;
             else
@@ -117,13 +118,31 @@ public class InventoryManager : MonoBehaviour
             var itemName = obj.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<UnityEngine.UI.Image>();
             var itemQtd = obj.transform.Find("ItemQtd").GetComponent<UnityEngine.UI.Text>();
-
+            var itemPodeJogar = obj.transform.Find("CheckPodeJogar").GetComponent<UnityEngine.UI.Toggle>();
+            var itemPassoIntermediario = obj.transform.Find("AvisoPrecisaLavar").GetComponent<UnityEngine.UI.Toggle>();
+            var itemConcluido = obj.transform.Find("ItemConcluido").GetComponent<UnityEngine.UI.Image>();
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
-            if (!item.jogado)
+            if (numItens==27 && item.passoIntermediario) {
+                itemPassoIntermediario.gameObject.SetActive(true);
+                itemPodeJogar.gameObject.SetActive(false);
+            }
+            else if (numItens==27 && !item.passoIntermediario) {
+                itemPassoIntermediario.gameObject.SetActive(false);
+                itemPodeJogar.gameObject.SetActive(true);
+            }
+            else if (numItens!=27) {
+                itemPassoIntermediario.gameObject.SetActive(false);
+                itemPodeJogar.gameObject.SetActive(false);
+            }
+            if (!item.jogado) {
                 itemQtd.text = item.quant.ToString() + " / " + item.quantMax.ToString();
-            else   
+                itemConcluido.gameObject.SetActive(false);
+            }
+            else {
                 Destroy(itemQtd);
+                itemConcluido.gameObject.SetActive(true);
+            }
             ButtonClick btn = obj.AddComponent<ButtonClick>();
             btn.config(InfoDetails, Details, itemName.text, Info, open, close);
         }

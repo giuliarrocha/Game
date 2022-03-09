@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 56113b3b655ab7349bab4d7d405c258a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.50603116, g: 0.7963496, b: 0.9941775, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6379,7 +6379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1112572790
 Transform:
   m_ObjectHideFlags: 0
@@ -11880,23 +11880,25 @@ MonoBehaviour:
   segurandoObj: 0
   prefabLatinha: {fileID: -927199367670048503, guid: 115bb14048f77fb44a4b84e568911321,
     type: 3}
-  prefabBituca: {fileID: 0}
+  prefabBituca: {fileID: 491281917695878004, guid: c841d548bd2709a42b63a0151d961cf4,
+    type: 3}
   prefabCaixa: {fileID: 9046488388630927593, guid: 59944157e42779c4bbb292c26066f3c0,
     type: 3}
-  prefabCanudo: {fileID: 3714236865108242293, guid: d17bb63d59e2c514b89cf11cec41a332,
+  prefabCanudo: {fileID: 1079175016646085244, guid: 985553c239e59d8458a94078ff3dc54a,
     type: 3}
   prefabComida: {fileID: -927199367670048503, guid: 9c1d619f8953c1a4291f2fef4d07b8c2,
     type: 3}
   prefabGarVidro: {fileID: -927199367670048503, guid: a9ef07fdc9b4067499cb418e3125f4ac,
     type: 3}
-  prefabPapel: {fileID: -927199367670048503, guid: 7b954f9847046c0499ecfdd036a71238,
+  prefabPapel: {fileID: -927199367670048503, guid: 40eed309293747c4f9e4f740e04d5693,
     type: 3}
   prefabPet: {fileID: 1000012523207284, guid: 59c63b6b36690354b9e5c25e36b973a7, type: 3}
   prefabPilha: {fileID: 8469760804597035098, guid: 0f24f2ae58c017e4ab5e0ba88cb8c98a,
     type: 3}
   prefabRemedio: {fileID: 1985338178271116, guid: 48ec186542777474bb236dff1694340c,
     type: 3}
-  prefabPapelao: {fileID: 0}
+  prefabPapelao: {fileID: 5161178927169371290, guid: 5268381c6aaea1c4680227cc1e9eb7f7,
+    type: 3}
   prefab: {fileID: 0}
   idObj: 0
   inventario: {fileID: 559954002}
@@ -12382,6 +12384,7 @@ MonoBehaviour:
     type: 3}
   mensagemPrefabErro: {fileID: 7228529346691333482, guid: 7ec3708f9b8170a46934d3aaca9db32e,
     type: 3}
+  itensAchados: {fileID: 1806924331}
 --- !u!64 &1270344558
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15049,6 +15052,18 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1806924331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6732763682716375479, guid: 8b9abdadc010dfa42970e29940b8694a,
+    type: 3}
+  m_PrefabInstance: {fileID: 494925020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1825526816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 96099f261a388b844bdd80c870a8c001,
@@ -15112,7 +15127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2016d04ac744b43a0b0a8be4ad0680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TriggerDistance: 2
+  m_TriggerDistance: 3
 --- !u!1 &1834665964
 GameObject:
   m_ObjectHideFlags: 0

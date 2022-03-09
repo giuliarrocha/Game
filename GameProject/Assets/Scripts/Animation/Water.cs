@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Water : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Water : MonoBehaviour
     public Transform canvas;
     public GameObject mensagemPrefabAcaoEfetuada, mensagemPrefabErro;
     private GameObject instanciaMensagemAcaoEfetuada, instanciaMensagemErro;
+    public TextMeshProUGUI itensAchados;
 
     void Start() {
         GameObject controlCenter = GameObject.Find("ControlCenter");
@@ -25,22 +27,26 @@ public class Water : MonoBehaviour
         if(instanciaMensagemAcaoEfetuada)
             Destroy(instanciaMensagemAcaoEfetuada);
         
-        //if (String.Equals(itensAchados.text,"27"))
-        if(m_Manager.segurandoObj){
-            if (m_Manager.idObj==1 || m_Manager.idObj==6 || m_Manager.idObj==7){
-                //Se for latinha (1), garrafa de vidro (6) ou pet (7), pode lavar
-                abrir = true;
+        if (String.Equals(itensAchados.text,"27")) {
+            if(m_Manager.segurandoObj){
+                if (m_Manager.idObj==1 || m_Manager.idObj==6 || m_Manager.idObj==7){
+                    //Se for latinha (1), garrafa de vidro (6) ou pet (7), pode lavar
+                    abrir = true;
+                }
+                else {
+                    texto = "Este lixo nao precisa ser lavado";
+                    abrir = false; 
+                }
             }
             else {
-                texto = "Este lixo nao precisa ser lavado";
+                texto = "Nao ha nada a ser lavado";
                 abrir = false; 
             }
         }
         else {
-            texto = "Nao ha nada a ser lavado";
+            texto = "Todos os lixos precisam ser coletados primeiro";
             abrir = false; 
         }
-        
         if(abrir) {
             instanciaMensagemAcaoEfetuada = Instantiate(mensagemPrefabAcaoEfetuada, canvas);
             var textoAcaoEfetuada = instanciaMensagemAcaoEfetuada.transform.Find("Text").GetComponent<TextMeshProUGUI>();

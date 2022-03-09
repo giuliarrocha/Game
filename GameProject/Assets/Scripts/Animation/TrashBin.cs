@@ -38,67 +38,72 @@ public class TrashBin : MonoBehaviour
                     naoJogar = true;
             }
         }
-        //if (String.Equals(itensAchados.text,"27"))
-        if(m_Manager.segurandoObj){
-            if (idTrash==1 && (m_Manager.idObj==2 || m_Manager.idObj==10)){
-                abrir = true; 
-                //Lixeira para Papeis (Azul)
-                //Lixos = Papel (id=2), Papelao (id=10)
-            }
-            else if(idTrash==2 && m_Manager.idObj==6){
-                //Lixeira para Vidro (Verde)
-                //Lixos = Garrafa Vidro (id=6)
-                if (naoJogar) {
-                    abrir = false;
-                    texto = "Lixo necessita de tratamento previo";
+        if (String.Equals(itensAchados.text,"27")) {
+            if(m_Manager.segurandoObj){
+                if (idTrash==1 && (m_Manager.idObj==2 || m_Manager.idObj==10)){
+                    abrir = true; 
+                    //Lixeira para Papeis (Azul)
+                    //Lixos = Papel (id=2), Papelao (id=10)
                 }
-                else
-                    abrir = true;
-                
-            }
-            else if (idTrash==3 && (m_Manager.idObj==7 || m_Manager.idObj==11)){ 
-                //Lixeira para Plastico (Vermelho)
-                //Lixos = Pet (id=7), Canudo (id=11)
-                if (m_Manager.idObj==7 && naoJogar) {
-                    abrir = false;
-                    texto = "Lixo necessita de tratamento previo";
+                else if(idTrash==2 && m_Manager.idObj==6){
+                    //Lixeira para Vidro (Verde)
+                    //Lixos = Garrafa Vidro (id=6)
+                    if (naoJogar) {
+                        abrir = false;
+                        texto = "Lixo necessita de tratamento previo";
+                    }
+                    else
+                        abrir = true;
+                    
                 }
-                else
-                    abrir = true;
-                
-            }
-            else if (idTrash==4 && m_Manager.idObj==1){
-                //Lixeira para Metal (Amarelo)
-                //Lixos = Latinha (id=1)
-                if (naoJogar) {
-                    abrir = false;
-                    texto = "Lixo necessita de tratamento previo";
+                else if (idTrash==3 && (m_Manager.idObj==7 || m_Manager.idObj==11)){ 
+                    //Lixeira para Plastico (Vermelho)
+                    //Lixos = Pet (id=7), Canudo (id=11)
+                    if (m_Manager.idObj==7 && naoJogar) {
+                        abrir = false;
+                        texto = "Lixo necessita de tratamento previo";
+                    }
+                    else
+                        abrir = true;
+                    
                 }
-                else
-                    abrir = true;
-                
-            }
-            else if (idTrash==5 && m_Manager.idObj==5){ 
-                abrir = true; 
-                //Lixeira para Organico (marrom)
-                //Lixos = Comida (id=5)
-                if (naoJogar) {
-                    abrir = false;
-                    texto = "Lixo necessita de tratamento previo";
+                else if (idTrash==4 && m_Manager.idObj==1){
+                    //Lixeira para Metal (Amarelo)
+                    //Lixos = Latinha (id=1)
+                    if (naoJogar) {
+                        abrir = false;
+                        texto = "Lixo necessita de tratamento previo";
+                    }
+                    else
+                        abrir = true;
+                    
                 }
-                else
-                    abrir = true;
-                
+                else if (idTrash==5 && m_Manager.idObj==5){ 
+                    abrir = true; 
+                    //Lixeira para Organico (marrom)
+                    //Lixos = Comida (id=5)
+                    if (naoJogar) {
+                        abrir = false;
+                        texto = "Lixo necessita de tratamento previo";
+                    }
+                    else
+                        abrir = true;
+                    
+                }
+                else {
+                    texto = "Local incorreto para o descarte do lixo";
+                    abrir = false; 
+                }
             }
             else {
-                texto = "Local incorreto para o descarte do lixo";
-                abrir = false; 
+                texto = "Nao ha nada a ser jogado";
+                abrir = false;
             }
         }
         else {
-            texto = "Nao ha nada a ser jogado";
-            abrir = false;
-        }
+                texto = "Todos os lixos precisam ser coletados primeiro";
+                abrir = false;
+        }    
         
         if(abrir) {
             instanciaMensagemAcaoEfetuada = Instantiate(mensagemPrefabAcaoEfetuada, canvas);

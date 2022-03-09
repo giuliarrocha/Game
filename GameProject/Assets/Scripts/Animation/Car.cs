@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Car : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Car : MonoBehaviour
     public Transform canvas;
     public GameObject mensagemPrefabAcaoEfetuada, mensagemPrefabErro;
     private GameObject instanciaMensagemAcaoEfetuada, instanciaMensagemErro;
+    public TextMeshProUGUI itensAchados;
 
     void Start() {
         totalItens = 0;
@@ -29,25 +31,30 @@ public class Car : MonoBehaviour
         if(instanciaMensagemAcaoEfetuada)
             Destroy(instanciaMensagemAcaoEfetuada);
 
-        //if (String.Equals(itensAchados.text,"27"))
-        if(m_Manager.segurandoObj){
-            if (m_Manager.idObj==3 || m_Manager.idObj==4 || m_Manager.idObj==8 || m_Manager.idObj==9){
-                //Colocar no carro Caixa de Madeira (3), Bituca (4), Remedio (8), Pilha (9)
-                //Carro so anda quando tiver os 4 tipos
-                totalItens++;
-                guardaItemCarro = true;
-                if (totalItens==4)
-                    andar = true; 
-                
+        if (String.Equals(itensAchados.text,"27")) {
+            if(m_Manager.segurandoObj){
+                if (m_Manager.idObj==3 || m_Manager.idObj==4 || m_Manager.idObj==8 || m_Manager.idObj==9){
+                    //Colocar no carro Caixa de Madeira (3), Bituca (4), Remedio (8), Pilha (9)
+                    //Carro so anda quando tiver os 4 tipos
+                    totalItens++;
+                    guardaItemCarro = true;
+                    if (totalItens==4)
+                        andar = true; 
+                    
+                }
+                else {
+                    texto = "Local incorreto para descarte do lixo.";
+                    andar = false;
+                }
             }
             else {
-                texto = "Local incorreto para descarte do lixo.";
-                andar = false;
+                texto = "Nao ha nada a ser jogado";
+                andar = false; 
             }
         }
         else {
-            texto = "Nao ha nada a ser jogado";
-            andar = false; 
+            texto = "Todos os lixos precisam ser coletados primeiro";
+            andar = false;
         }
         
         if(guardaItemCarro) {
