@@ -21,6 +21,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject InfoDetails; // tela de fundo do pop-up
     private TextMeshProUGUI Details; // referencia ao campo de texto do pop-up
     private TextMeshProUGUI Explicacao;
+    public TextMeshProUGUI erros;
     public Animator Info;
     public AudioSource open, close;
 
@@ -37,7 +38,7 @@ public class InventoryManager : MonoBehaviour
 
         Details = InfoDetails.transform.Find("Details").GetComponent<TextMeshProUGUI>();
         Explicacao = InfoDetails.transform.Find("Explicacao").GetComponent<TextMeshProUGUI>();
-
+        erros.text = saveItemData.numErros.ToString();
         if(saveItemData.numItens != -1)
         {
             // Debug.Log(saveItemData.numItens);
