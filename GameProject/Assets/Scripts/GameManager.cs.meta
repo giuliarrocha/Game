@@ -3,7 +3,23 @@ guid: 5308df534d982654891970c90ea01890
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DefaultCursor: {instanceID: 0}
+  - m_MouseOver: {instanceID: 0}
+  - prefabLatinha: {instanceID: 0}
+  - prefabBituca: {instanceID: 0}
+  - prefabCaixa: {instanceID: 0}
+  - prefabCanudo: {instanceID: 0}
+  - prefabComida: {instanceID: 0}
+  - prefabGarVidro: {instanceID: 0}
+  - prefabPapel: {instanceID: 0}
+  - prefabPet: {instanceID: 0}
+  - prefabPilha: {instanceID: 0}
+  - prefabRemedio: {instanceID: 0}
+  - prefabPapelao: {instanceID: 0}
+  - prefab: {instanceID: 0}
+  - inventario: {instanceID: 0}
+  - saveItemData: {fileID: 11400000, guid: 0ac49a716685ece4eb92f0a68dcb3542, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

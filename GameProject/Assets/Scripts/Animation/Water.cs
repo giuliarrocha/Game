@@ -15,9 +15,18 @@ public class Water : MonoBehaviour
     public Data saveItemData;
     public TextMeshProUGUI numErros;
 
+    public GameObject lixoBase;
+    private GameObject prefabLatinha;
+    private GameObject prefabGarrafaPet;
+    private GameObject prefabGarrafaVidro;
+
     void Start() {
         GameObject controlCenter = GameObject.Find("ControlCenter");
         m_Manager = controlCenter.GetComponent<GameManager>();
+        
+        prefabLatinha = lixoBase.transform.Find("latinha").gameObject;
+        prefabGarrafaPet = lixoBase.transform.Find("pet").gameObject;
+        prefabGarrafaVidro = lixoBase.transform.Find("garrafa_vidro").gameObject;
     }
     
     void OnMouseDown()
@@ -34,6 +43,17 @@ public class Water : MonoBehaviour
                 if (m_Manager.idObj==1 || m_Manager.idObj==6 || m_Manager.idObj==7){
                     //Se for latinha (1), garrafa de vidro (6) ou pet (7), pode lavar
                     abrir = true;
+                    switch(m_Manager.idObj){
+                        case 1:
+                            prefabLatinha.SetActive(true);
+                            break;
+                        case 6:
+                            prefabGarrafaVidro.SetActive(true);
+                            break;
+                        case 7:
+                            prefabGarrafaPet.SetActive(true);
+                            break;
+                    }
                 }
                 else {
                     texto = "Este lixo nao precisa ser lavado!";
@@ -57,12 +77,22 @@ public class Water : MonoBehaviour
             var textoAcaoEfetuada = instanciaMensagemAcaoEfetuada.transform.Find("Text").GetComponent<TextMeshProUGUI>();
             textoAcaoEfetuada.text = "Lavado!";
             m_Manager.atualizaItemStatus(2);
+            water.SetBool("wash", true);
             water.SetBool("falling", true); //Ativando a torneira
+            StartCoroutine(DelayCoroutine());
             return;
         }
         
         instanciaMensagemErro = Instantiate(mensagemPrefabErro, canvas);
         var textoErro = instanciaMensagemErro.transform.Find("Text").GetComponent<TextMeshProUGUI>();
         textoErro.text = texto;
+    }
+    IEnumerator DelayCoroutine()
+    {
+        yield return new WaitForSeconds(4.6f);
+        water.SetBool("wash", false);
+        prefabLatinha.SetActive(false);
+        prefabGarrafaPet.SetActive(false);
+        prefabGarrafaVidro.SetActive(false);
     }
 }

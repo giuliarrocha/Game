@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
                     prefab = Instantiate (prefabCaixa, objectPos, Quaternion.identity);
                     idObj = 3;
                     break;
-                case "Canudo Plástico":
+                case "Canudo de Plástico":
                     prefab = Instantiate (prefabCanudo, objectPos, Quaternion.identity);
                     idObj = 11;
                     break;
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
                     prefab = Instantiate (prefabComida, objectPos, Quaternion.identity);
                     idObj = 5;
                     break;
-                case "Garrafa Vidro":
+                case "Garrafa de Vidro":
                     prefab = Instantiate (prefabGarVidro, objectPos, Quaternion.identity);
                     idObj = 6;
                     break;
@@ -125,11 +125,12 @@ public class GameManager : MonoBehaviour
                 if (x.id == idObj) {
                     x.jogado = true; //identifica que o objeto foi jogado
                     inventario.update();
-                }
-                // terminar jogo
-                if(++saveItemData.numJogados == 11)
-                {
-                    SceneManager.LoadScene(3);
+
+                    // terminar jogo
+                    if(++saveItemData.numJogados == 11)
+                    {
+                        SceneManager.LoadScene(3);
+                    }
                 }
             }
         }

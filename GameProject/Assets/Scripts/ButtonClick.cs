@@ -10,18 +10,19 @@ public class ButtonClick : EventTrigger
     public GameObject InfoDetails; // tela de fundo do pop-up
     public TextMeshProUGUI Details;
     public TextMeshProUGUI Explicacao; // referencia ao campo de texto para imprimir a descricao
-    public string CustomDetails; // texto da descricao
+    public string CustomDetails, explicacao; // texto da descricao
     public string nomeObjSegurado; //nome do objeto selecionado no inventario
     public Animator Info;
     public AudioSource open, close;
     public GameManager m_Manager;
 
-    public void config(GameObject InfoDetails, TextMeshProUGUI Details, TextMeshProUGUI Explicacao, string CustomDetails, Animator Info, AudioSource open, AudioSource close)
+    public void config(GameObject InfoDetails, TextMeshProUGUI Details, TextMeshProUGUI Explicacao, string CustomDetails, string explicacao, Animator Info, AudioSource open, AudioSource close)
     {
         this.InfoDetails = InfoDetails;
         this.Details = Details;
         this.Explicacao = Explicacao;
         this.CustomDetails = CustomDetails;
+        this.explicacao = explicacao;
         this.Info = Info;
         this.open = open;
         this.close = close;
@@ -44,6 +45,7 @@ public class ButtonClick : EventTrigger
             //Debug.Log("Pressed right click.");
             if(!Details.text.Equals(CustomDetails)) {
                 Details.text = CustomDetails;
+                Explicacao.text = explicacao;
                 if(InfoDetails.activeSelf == true) return;
             }
 

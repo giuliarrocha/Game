@@ -18,10 +18,31 @@ public class TrashBin : MonoBehaviour
     public Data saveItemData;
     public TextMeshProUGUI numErros;
 
+    public GameObject lixoBase;
+    private GameObject prefabPapel;
+    private GameObject prefabPapelao;
+
+    private GameObject prefabGarrafaVidro;
+
+    private GameObject prefabPet;
+    private GameObject prefabCanudo;
+
+    private GameObject prefabLatinha;
+    
+    private GameObject prefabComida;
+    public Animator bin2;
+
     void Start() {
         GameObject controlCenter = GameObject.Find("ControlCenter");
         m_Manager = controlCenter.GetComponent<GameManager>();
 
+        prefabPapel = lixoBase.transform.Find("papel").gameObject;
+        prefabPapelao = lixoBase.transform.Find("papelao").gameObject;
+        prefabGarrafaVidro = lixoBase.transform.Find("garrafa_vidro").gameObject;
+        prefabPet = lixoBase.transform.Find("pet").gameObject;
+        prefabCanudo = lixoBase.transform.Find("canudo").gameObject;
+        prefabLatinha = lixoBase.transform.Find("latinha").gameObject;
+        prefabComida = lixoBase.transform.Find("comida").gameObject;
     }
 
     void OnMouseDown()
@@ -46,6 +67,14 @@ public class TrashBin : MonoBehaviour
                     abrir = true; 
                     //Lixeira para Papeis (Azul)
                     //Lixos = Papel (id=2), Papelao (id=10)
+                    switch(m_Manager.idObj){
+                        case 2:
+                            prefabPapel.SetActive(true);
+                            break;
+                        case 10:
+                            prefabPapelao.SetActive(true);
+                            break;
+                    }
                 }
                 else if(idTrash==2 && m_Manager.idObj==6){
                     //Lixeira para Vidro (Verde)
@@ -56,7 +85,10 @@ public class TrashBin : MonoBehaviour
                         numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
+                    {
                         abrir = true;
+                        prefabGarrafaVidro.SetActive(true);
+                    }
                     
                 }
                 else if (idTrash==3 && (m_Manager.idObj==7 || m_Manager.idObj==11)){ 
@@ -68,8 +100,17 @@ public class TrashBin : MonoBehaviour
                         numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
+                    {
                         abrir = true;
-                    
+                        switch(m_Manager.idObj){
+                            case 7:
+                                prefabPet.SetActive(true);
+                                break;
+                            case 11:
+                                prefabCanudo.SetActive(true);
+                                break;
+                        }
+                    }
                 }
                 else if (idTrash==4 && m_Manager.idObj==1){
                     //Lixeira para Metal (Amarelo)
@@ -80,8 +121,10 @@ public class TrashBin : MonoBehaviour
                         numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
+                    {
                         abrir = true;
-                    
+                        prefabLatinha.SetActive(true);
+                    }
                 }
                 else if (idTrash==5 && m_Manager.idObj==5){ 
                     abrir = true; 
@@ -93,8 +136,10 @@ public class TrashBin : MonoBehaviour
                         numErros.text = (++saveItemData.numErros).ToString();
                     }
                     else
+                    {
                         abrir = true;
-                    
+                        prefabComida.SetActive(true);
+                    }                    
                 }
                 else {
                     texto = "Local incorreto para o descarte do lixo!";
@@ -123,6 +168,7 @@ public class TrashBin : MonoBehaviour
             Destroy(m_Manager.prefab);
             m_Manager.atualizaItemStatus(1);
             bin.SetBool("move", true);
+            bin2.SetBool("move", true);
             open.Play();
             StartCoroutine(DelayCoroutine());
             return;
@@ -138,6 +184,16 @@ public class TrashBin : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         bin.SetBool("move", false);
+        bin2.SetBool("move", false);
+        
+        prefabPapel.SetActive(false);
+        prefabPapelao.SetActive(false);
+        prefabGarrafaVidro.SetActive(false);
+        prefabPet.SetActive(false);
+        prefabCanudo.SetActive(false);
+        prefabLatinha.SetActive(false);
+        prefabComida.SetActive(false);
+
         StartCoroutine(DelayCoroutine2());
     }
     IEnumerator DelayCoroutine2()

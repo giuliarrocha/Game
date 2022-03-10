@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour
     public Data saveItemData;
     public GameObject mensagemPrefab;
     public Transform canvas;
-    private GameObject instanciaMensagem;
+    // private GameObject instanciaMensagem;
 
     public GameObject mensagem27ItensPrefab;
     private GameObject instanciaMensagem27Itens;
@@ -87,14 +87,14 @@ public class InventoryManager : MonoBehaviour
         else // para mensagens nao se sobreporem
         {
             // pop-up MensagemColeta
-            instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
-            MostraMensagem(item);
+            GameObject instanciaMensagem = Instantiate(mensagemPrefab, canvas); // cria uma mensagemcoleta
+            MostraMensagem(item, instanciaMensagem);
         }
 
         update();
     }
 
-    public void MostraMensagem(Item item)
+    public void MostraMensagem(Item item, GameObject instanciaMensagem)
     {
         var nomeItem = instanciaMensagem.transform.Find("NomeItem").GetComponent<TextMeshProUGUI>();
         var itemIcon = instanciaMensagem.transform.Find("IconItem").GetComponent<UnityEngine.UI.Image>();
@@ -105,12 +105,12 @@ public class InventoryManager : MonoBehaviour
         itemIcon.sprite = item.icon;
         numColetado.text = item.quant.ToString();
         numMax.text = item.quantMax.ToString();
-        StartCoroutine(DelayCoroutine());
+        StartCoroutine(DelayCoroutine(instanciaMensagem));
     }
 
-    IEnumerator DelayCoroutine()
+    IEnumerator DelayCoroutine(GameObject instanciaMensagem)
     {
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(1.5f);
         Destroy(instanciaMensagem);
     }
     IEnumerator DelayCoroutine2()
@@ -164,7 +164,7 @@ public class InventoryManager : MonoBehaviour
                 itemConcluido.gameObject.SetActive(true);
             }
             ButtonClick btn = obj.AddComponent<ButtonClick>();
-            btn.config(InfoDetails, Details, Explicacao, itemName.text, Info, open, close);
+            btn.config(InfoDetails, Details, Explicacao, itemName.text, item.descricao, Info, open, close);
         }
 
         SetInventoryItens();
