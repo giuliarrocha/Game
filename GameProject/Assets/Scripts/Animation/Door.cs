@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         door.SetBool("forward", true);
-        open.Play();
+        // open.Play();
         StartCoroutine(DelayCoroutine());
     }
 
@@ -32,6 +32,6 @@ public class Door : MonoBehaviour
         yield return new WaitForSeconds(0.90f);
 
         //After we have waited
-        close.Play();
+        // close.Play();
     }
 }

@@ -231,6 +231,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MensagemParabens
       objectReference: {fileID: 0}
+    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4259030324547651206, guid: 87ccc45d5f445c040bc3530410110d5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -389,26 +409,6 @@ PrefabInstance:
     - target: {fileID: 9183780129496509298, guid: 87ccc45d5f445c040bc3530410110d5b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341490040397346037, guid: 87ccc45d5f445c040bc3530410110d5b,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5170429955457877595, guid: 87ccc45d5f445c040bc3530410110d5b,
@@ -667,7 +667,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bec54f84cefbcde468bd6057f546c8c2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.274
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -13757,7 +13757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 1
-  canvas: {fileID: 0}
+  canvas: {fileID: 1719569341}
   mensagemPrefabAcaoEfetuada: {fileID: 2450823458493997216, guid: b5f143300c2561140826654418bcde84,
     type: 3}
 --- !u!65 &1595278667
@@ -14019,6 +14019,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1639284062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639284059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89ba4324ea9ef14eaef4e41c434d632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: {fileID: 2057586101}
+  close: {fileID: 298569953}
 --- !u!1 &1641822109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000010004895028, guid: 83b95243d15f01b4e85b125582c896c5,
@@ -14616,6 +14630,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1794634501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794634498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89ba4324ea9ef14eaef4e41c434d632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: {fileID: 2057586101}
+  close: {fileID: 298569953}
 --- !u!1 &1797543004
 GameObject:
   m_ObjectHideFlags: 0
@@ -16102,6 +16130,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1998389713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998389711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89ba4324ea9ef14eaef4e41c434d632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: {fileID: 2057586101}
+  close: {fileID: 298569953}
 --- !u!4 &1998389717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 870343538809935777, guid: 7d8b93e804b423749927e6f9dfa94deb,
