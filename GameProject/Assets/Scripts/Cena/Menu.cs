@@ -13,7 +13,7 @@ public class Menu : MonoBehaviour
         saveItemData.InventoryItens = null;
         saveItemData.ItensCasa = null;
         saveItemData.ItensPraia = new List<Vector3>();
-
+        saveItemData.numJogados = 0;
         SceneManager.LoadScene(indexScene);
     }
     public void ExitGame () {

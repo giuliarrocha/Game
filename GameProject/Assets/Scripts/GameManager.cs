@@ -137,7 +137,8 @@ public class GameManager : MonoBehaviour
         else {
             foreach (var x in inventario.Itens) {
                 if (x.id == idObj) {
-                    x.passoIntermediario = false; //identifica que o objeto foi jogado
+                    x.passoIntermediario = false; //identifica que o objeto foi lavado
+                    inventario.update();
                 }
             }
         }
